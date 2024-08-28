@@ -1,0 +1,12 @@
+## ---------- BULD FILES -----------##
+*.asm
+*.cp
+*.dct
+*.dic
+
+## ---------- Project Private Files -----------##
+*.log
+*.dbg
+
+## ---------- IDE Files -----------##
+.vscode/
