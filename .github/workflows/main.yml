@@ -1,0 +1,33 @@
+on:
+  release:
+      types: [released]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: #https://gist.github.com/microside-mx/0fbbcb9da2c0de088601f123600ef1b5
+          gist_title: Practica-23 DHT11 4550-MikroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/4550/DHT11_4550_.c
+          file_encoding: WINDOWS-1252
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: #https://gist.github.com/microside-mx/852157240204b86edb0e4914b85e6e82
+          gist_title: Practica-23 DHT11 45K50-MikroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/45K50/DHT11_45K50.c
+          file_encoding: WINDOWS-1252
