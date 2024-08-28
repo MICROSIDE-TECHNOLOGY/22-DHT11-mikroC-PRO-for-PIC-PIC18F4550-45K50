@@ -48,8 +48,8 @@ void lcd_i2c_write( uint8_t byte );
 void lcd_i2c_write_instruction( uint8_t byte );
 void lcd_i2c_write_byte( char byte );
 void lcd_i2c_write_str( char theString[] );
-void lcd_i2c_write_int(int value);
-void lcd_i2c_write_double(double value, uint8_t decimals);
+void lcd_i2c_write_int( int value );
+void lcd_i2c_write_double( double value, uint8_t decimals );
 void lcd_i2c_Backlight( void );
 void lcd_i2c_noBacklight( void );
 void lcd_i2c_setCursor( uint8_t col, uint8_t row );
@@ -251,25 +251,25 @@ void lcd_i2c_write_str( char theString[] )
 
  retorna: no parametros
 ********************************************************************************/
-void lcd_i2c_write_double(double value, uint8_t decimals)
+void lcd_i2c_write_double( double value, uint8_t decimals )
 {
-    int integer = 0;
-    int decimal = 0;
-    int decimal_shif = 1;
-    uint8_t e_10 = 0;
+   int integer = 0;
+   int decimal = 0;
+   int decimal_shif = 1;
+   uint8_t e_10 = 0;
 
-    for ( e_10 = 0; e_10 < decimals; e_10++ ){
-        decimal_shif *= 10;
-    }
+   for ( e_10 = 0; e_10 < decimals; e_10++ ) {
+      decimal_shif *= 10;
+   }
 
-    integer = (int)value;
-    decimal = (int)((value - (float)integer) * decimal_shif);
-    if ( decimal < 0 )
-        decimal = decimal * -1;
+   integer = (int)value;
+   decimal = (int)( ( value - (float)integer ) * decimal_shif );
+   if ( decimal < 0 )
+      decimal = decimal * -1;
 
-    lcd_i2c_write_int( integer );
-    lcd_i2c_write_byte( '.' );
-    lcd_i2c_write_int( decimal );
+   lcd_i2c_write_int( integer );
+   lcd_i2c_write_byte( '.' );
+   lcd_i2c_write_int( decimal );
 }
 
 /*******************************************************************************
@@ -281,28 +281,28 @@ void lcd_i2c_write_double(double value, uint8_t decimals)
 
  retorna: no parametros
 ********************************************************************************/
-void lcd_i2c_write_int(int value)
+void lcd_i2c_write_int( int value )
 {
-    char buf[ 16 ] = {0};
-    uint8_t index = 0;
-    uint8_t i = 0;
+   char buf[16] = { 0 };
+   uint8_t index = 0;
+   uint8_t i = 0;
 
-    if ( value < 0 ) {
-        lcd_i2c_write_byte( '-' );
-        value = value * -1;
-    }
+   if ( value < 0 ) {
+      lcd_i2c_write_byte( '-' );
+      value = value * -1;
+   }
 
-    do {
-        buf[index] = '0' + (value % 10);
-        index++;
-        value /= 10;
-    } while (value > 0);
+   do {
+      buf[index] = '0' + ( value % 10 );
+      index++;
+      value /= 10;
+   } while ( value > 0 );
 
-    for ( i = 1; i <= index; i++ ){
-        lcd_i2c_write_byte( buf[ index - i ] );
-    }
+   for ( i = 1; i <= index; i++ ) {
+      lcd_i2c_write_byte( buf[index - i] );
+   }
 
-    return;
+   return;
 }
 
 /*******************************************************************************
