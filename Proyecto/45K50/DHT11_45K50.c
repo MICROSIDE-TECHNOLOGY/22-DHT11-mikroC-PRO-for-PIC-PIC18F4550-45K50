@@ -48,7 +48,7 @@ void main() org 0x2000
     lcd_i2c_write_str( "DHT11" );
     lcd_i2c_setCursor( 3, 1 );
 
-    if ( dht11_init() != 0 ) {
+    if ( dht11_init() != 0 ) { // Inicializa el DHT11
         lcd_i2c_write_str( "ERROR" );
         while ( 1 ) {
         }
@@ -59,9 +59,9 @@ void main() org 0x2000
     
     while ( 1 ) {
         Delay_ms( 2000 );
-
+        // Lee el sensor DHT11
         dht11_stat = dht11_read( &temperature, &humidity );
-
+        // Cualquier valor diferente a 0 significa error en la lectura
         if ( dht11_stat != 0 ) {
             lcd_i2c_clear();
             lcd_i2c_setCursor( 0, 0 );
