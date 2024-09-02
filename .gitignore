@@ -3,10 +3,19 @@
 *.cp
 *.dct
 *.dic
+*.asm
+*.dlt
+*.c.ini
+*.h.ini
 
 ## ---------- Project Private Files -----------##
 *.log
 *.dbg
+*.lst
 
 ## ---------- IDE Files -----------##
 .vscode/
+*.bmk
+*.brk
+*.mcl
+*.mcppi_callertable*.txt
