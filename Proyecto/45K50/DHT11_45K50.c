@@ -39,7 +39,7 @@ void main() org 0x2000
 
    I2C1_Init( 100000 );       // Inicializa el BUS I2C
 
-   Delay_ms( 1000 );
+   Delay_ms( 2000 );
 
    lcd_i2c_init( 0x27 );      // Inicializa la pantalla LCD
 

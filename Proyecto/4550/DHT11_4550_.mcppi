@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=LCD_4550_.c
+Value=dht_sensor.h
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -25,7 +25,8 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 File0=DHT11_4550_.c
-Count=1
+File1=dht_sensor.h
+Count=2
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -53,4 +54,4 @@ Count=3
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries
-Count=2
+Count=3
